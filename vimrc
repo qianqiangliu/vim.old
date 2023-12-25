@@ -16,6 +16,9 @@ autocmd BufReadPost *
   \   exe "normal! g`\"" |
   \ endif
 
+command -nargs=+ -complete=file -bar
+  \ Grep silent! grep! <args> | cwindow | redraw!
+
 " expand '%%' to current path
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
