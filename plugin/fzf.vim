@@ -47,7 +47,7 @@ function! s:fzf_open(path) abort
   endif
 
   let options = {'term_name':'FZF','curwin':1,'exit_cb':'s:on_exit'}
-  let b:term_buf = term_start('fzf', options)
+  let b:term_buf = term_start('fzf --preview "cat {}"', options)
 endfunction
 
 command! -nargs=? -complete=file Fzf :call s:fzf_open(<q-args>)
